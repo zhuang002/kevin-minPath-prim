@@ -5,6 +5,7 @@
  */
 package minspantree;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
 
@@ -59,7 +60,16 @@ public class MinSpanTree {
      * Generate the minimum spanning tree from graph into spanTree.
      */
     private static void generateMinSpanTree() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Hashtable<Integer,Integer[]> prepareNodes=new Hashtable() ;    
+        int minNode=0;
+        while (true) {
+            ArrayList<Integer[]> nodes=getPrepareNodes(minNode);
+            prepareNodes=mergePrepareNodes(prepareNodes,nodes);
+            if (prepareNodes.isEmpty()) break;
+            minNode=getMinNode(prepareNodes);
+            addToSpanTree(minNode,prepareNodes.get(minNode));
+            prepareNodes.remove(minNode);
+        }
     }
 
     /**
@@ -69,8 +79,23 @@ public class MinSpanTree {
      * @return The sum of all path lengths of the tree.
      */
     private static boolean sumOfTreePaths(int[][] spanTree) {
-        Hashtable<Integer,Integer[]> prepareNodes=new Hashtable() ;
-        
+
+    }
+
+    private static ArrayList<Integer[]> getPrepareNodes(int minNode) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static Hashtable<Integer, Integer[]> mergePrepareNodes(Hashtable<Integer, Integer[]> prepareNodes, ArrayList<Integer[]> nodes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static int getMinNode(Hashtable<Integer, Integer[]> prepareNodes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static void addToSpanTree(int minNode, Integer[] get) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
