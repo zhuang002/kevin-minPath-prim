@@ -90,19 +90,45 @@ public class MinSpanTree {
         return sum;
     }
 
-    private static ArrayList<Integer[]> getPrepareNodes(int minNode) {
+    /**
+     * Get all neighbour of a node which are not included in the spanTree.
+     * A neighbour node should contain 2 information: the incoming node id and the path length from the incoming node.
+     * @param node the node to process 
+     * @return a list of neighbour nodes which are not included in the spanTree.
+     * 
+     */
+    private static ArrayList<Integer[]> getPrepareNodes(int node) {
         
     }
 
+    /**
+     * Merge the new neighbour nodes into the prepareNodes. 
+     * If a neighbour node is already in the prepareNodes, the new path value should be updated if smaller and 
+     * the incoming node id should also be updated.
+     * @param prepareNodes The old prepareNodes
+     * @param nodes the new neighbour nodes.
+     * @return the new prepareNodes.
+     */
     private static Hashtable<Integer, Integer[]> mergePrepareNodes(Hashtable<Integer, Integer[]> prepareNodes, ArrayList<Integer[]> nodes) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * Get the node that has the minimum path length towards the spanTree.
+     * @param prepareNodes The nodes to be considered(compared). 
+     * @return the id of the node that has the minimum path length towards the spanTree.
+     */
     private static int getMinNode(Hashtable<Integer, Integer[]> prepareNodes) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private static void addToSpanTree(int minNode, Integer[] get) {
+    /**
+     * Add a new node to the spanTree.
+     * @param node the node to be added to the spanTree
+     * @param nodeInfo the information of the node. 
+     * Contains the incoming node id and the path length from the incoming node. 
+     */
+    private static void addToSpanTree(int node, Integer[] nodeInfo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
