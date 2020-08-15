@@ -78,12 +78,20 @@ public class MinSpanTree {
      * @param spanTree The tree to be calculated.
      * @return The sum of all path lengths of the tree.
      */
-    private static boolean sumOfTreePaths(int[][] spanTree) {
-
+    private static int sumOfTreePaths(int[][] spanTree) {
+        int sum=0;
+        for(int i=0;i<spanTree.length;i++){
+            for(int j=0;j<spanTree[0].length;j++){
+               if(spanTree[i][j]>=0){
+                    sum+=spanTree[i][j]; 
+               }              
+            }
+        }
+        return sum;
     }
 
     private static ArrayList<Integer[]> getPrepareNodes(int minNode) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     private static Hashtable<Integer, Integer[]> mergePrepareNodes(Hashtable<Integer, Integer[]> prepareNodes, ArrayList<Integer[]> nodes) {
