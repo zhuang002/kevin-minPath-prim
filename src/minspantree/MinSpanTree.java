@@ -5,6 +5,9 @@
  */
 package minspantree;
 
+import java.util.Hashtable;
+import java.util.Scanner;
+
 /**
  *
  * @author zhuan
@@ -14,9 +17,9 @@ public class MinSpanTree {
     /**
      * @param args the command line arguments
      */
-    static int[][] graph=null;
-    static int[][] spanTree=null;
-    
+    static int[][] graph = null;
+    static int[][] spanTree = null;
+
     public static void main(String[] args) {
         // TODO code application logic here
         readInput();
@@ -28,7 +31,28 @@ public class MinSpanTree {
      * The method to read input into graph.
      */
     private static void readInput() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Scanner sc = new Scanner(System.in);
+        int path = sc.nextInt();
+        int nodes = sc.nextInt();
+        graph = new int[nodes][nodes];
+        for (int i = 0; i < nodes; i++) {
+            for (int j = 0; j < nodes; j++) {
+                graph[i][j] = -1;
+            }
+        }
+        spanTree = new int[nodes][nodes];
+        for (int i = 0; i < nodes; i++) {
+            for (int j = 0; j < nodes; j++) {
+                spanTree[i][j] = -1;
+            }
+        }
+        for (int i = 0; i < path; i++) {
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            int c = sc.nextInt();
+            graph[a][b] = c;
+            graph[b][a] = c;
+        }
     }
 
     /**
@@ -40,11 +64,13 @@ public class MinSpanTree {
 
     /**
      * Get the sum of path lengths of a tree.
+     *
      * @param spanTree The tree to be calculated.
      * @return The sum of all path lengths of the tree.
      */
     private static boolean sumOfTreePaths(int[][] spanTree) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Hashtable<Integer,Integer[]> prepareNodes=new Hashtable() ;
+        
     }
-    
+
 }
