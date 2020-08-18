@@ -19,13 +19,14 @@ public class MinSpanTree {
      * @param args the command line arguments
      */
     static int[][] graph = null;
-    static int[][] spanTree = null;
+    static int[] spanTree = null;
+    static int[] spanTreeDistances=null;
 
     public static void main(String[] args) {
         // TODO code application logic here
         readInput();
         generateMinSpanTree();
-        System.out.println(sumOfTreePaths(spanTree));
+        System.out.println(sumOfTreePaths());
     }
 
     /**
@@ -41,12 +42,6 @@ public class MinSpanTree {
                 graph[i][j] = -1;
             }
         }
-        spanTree = new int[nodes][nodes];
-        for (int i = 0; i < nodes; i++) {
-            for (int j = 0; j < nodes; j++) {
-                spanTree[i][j] = -1;
-            }
-        }
         for (int i = 0; i < path; i++) {
             int a = sc.nextInt();
             int b = sc.nextInt();
@@ -54,6 +49,17 @@ public class MinSpanTree {
             graph[a][b] = c;
             graph[b][a] = c;
         }
+        
+        spanTree = new int[nodes];
+        for (int i = 0; i < nodes; i++) {
+            spanTree[i] = -1;
+        }
+        spanTreeDistances=new int[nodes];
+        for (int i=0;i<nodes;i++) {
+            spanTreeDistances[i]=-1;
+        }
+        
+        
     }
 
     /**
@@ -76,20 +82,12 @@ public class MinSpanTree {
 
     /**
      * Get the sum of path lengths of a tree.
-     *
-     * @param spanTree The tree to be calculated.
      * @return The sum of all path lengths of the tree.
      */
-    private static int sumOfTreePaths(int[][] spanTree) {
+    private static int sumOfTreePaths() {
         int sum = 0;
-        for (int i = 0; i < spanTree.length; i++) {
-            for (int j = 0; j < spanTree[0].length; j++) {
-                if (spanTree[i][j] >= 0) {
-                    sum += spanTree[i][j];                   
-                }
-            }
-        }
-        return sum/2;
+        // using spanTreeDistances to calculate.
+        return sum;
     }
 
     /**
@@ -176,8 +174,7 @@ public class MinSpanTree {
      * id and the path length from the incoming node.
      */
     private static void addToSpanTree(int node, Integer[] nodeInfo) {
-        spanTree[node][nodeInfo[1]] = nodeInfo[0];
-        spanTree[nodeInfo[1]][node] = nodeInfo[0];
+        // modify to adapt to new spanTree and spanTreeDistances.
     }
 
     private static boolean spanTreeContains(int node) {
